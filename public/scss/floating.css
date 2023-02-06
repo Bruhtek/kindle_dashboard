@@ -1,0 +1,39 @@
+.floating-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  color: black;
+  border: 4px solid black;
+  text-align: center;
+  display: grid;
+  font-size: 30px;
+  place-content: center;
+  user-select: none;
+}
+
+.battery {
+  text-align: center;
+  height: 100%;
+  display: flex;
+  place-content: center;
+  align-items: center;
+}
+.battery .battery-icon {
+  display: inline-block;
+  font-size: 36px;
+}
+.battery .battery-level {
+  display: inline-block;
+}
+
+.floating-two {
+  bottom: unset;
+  top: 20px;
+  right: 70px;
+  width: 120px;
+  border-right: none;
+}
+
+/*# sourceMappingURL=floating.css.map */

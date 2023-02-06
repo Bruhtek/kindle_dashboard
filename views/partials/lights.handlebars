@@ -1,0 +1,30 @@
+<div class="lights">
+    <div class="container">
+        <div class="light-toggle" onclick="toggleLights()">
+            {{#if lightStatus}}
+            <i class="nf nf-md-lightbulb"></i>
+            {{else}}
+            <i class="nf nf-md-lightbulb_outline"></i>
+            {{/if}}
+        </div>
+        <div class="small-text">
+            Lights
+        </div>
+    </div>
+</div>
+
+<script>
+    const lightToggle = document.querySelector(".light-toggle");
+
+    const toggleLights = () => {
+		fetch("/api/toggleLights").then(res => res.json()).then(data => {
+			if(data.state === "on") {
+				lightToggle.innerHTML = `<i class="nf nf-md-lightbulb"></i>`;
+            } else if (data.state === "off") {
+                lightToggle.innerHTML = `<i class="nf nf-md-lightbulb_outline"></i>`;
+            } else {
+				lightToggle.innerHTML = `<i class="nf nf-md-lightbulb_alert_outline"></i>`;
+            }
+        })
+    }
+</script>

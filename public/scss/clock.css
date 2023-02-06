@@ -1,0 +1,31 @@
+.clock {
+  text-align: left;
+  border-bottom: 4px solid black;
+  height: 100%;
+  display: grid;
+  align-content: center;
+  position: relative;
+}
+.clock > .small-text {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+}
+.clock > .time {
+  margin: 0;
+  line-height: 1;
+  font-size: 140px;
+  text-align: center;
+}
+.clock > .time .small-clock {
+  font-size: 36px;
+  color: #555;
+}
+.clock > .small-date {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  width: fit-content;
+}
+
+/*# sourceMappingURL=clock.css.map */

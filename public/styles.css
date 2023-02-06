@@ -1,0 +1,315 @@
+.floating-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  color: black;
+  border: 4px solid black;
+  text-align: center;
+  display: grid;
+  font-size: 25px;
+  place-content: center;
+  user-select: none;
+}
+
+.battery {
+  text-align: center;
+  height: 100%;
+  display: flex;
+  place-content: center;
+  align-items: center;
+}
+.battery .battery-icon {
+  display: inline-block;
+  font-size: 24px;
+}
+.battery .battery-level {
+  display: inline-block;
+  font-size: 16px;
+}
+
+.floating-two {
+  right: 50px;
+  border-right: none;
+}
+
+.floating-three {
+  bottom: unset;
+  top: 10px;
+  right: 90px;
+  width: 80px;
+  border-right: none;
+}
+
+.clock {
+  text-align: left;
+  border-bottom: 4px solid black;
+  height: 100%;
+  display: grid;
+  align-content: center;
+  position: relative;
+}
+.clock > .small-text {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+}
+.clock > .time {
+  margin: 0;
+  line-height: 1;
+  font-size: 140px;
+  text-align: center;
+}
+.clock > .time .small-clock {
+  font-size: 36px;
+  color: #555;
+}
+.clock > .small-date {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  width: fit-content;
+}
+
+.lights {
+  width: 100%;
+  height: 100%;
+  display: inline-grid;
+  place-content: center;
+}
+.lights .container {
+  width: fit-content;
+  height: fit-content;
+  text-align: center;
+}
+.lights .light-toggle {
+  font-size: 170px;
+  margin: auto;
+  text-align: center;
+}
+.lights .small-text {
+  margin: auto;
+  text-align: center;
+}
+
+.weather-container {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr;
+}
+
+.weather-item {
+  position: relative;
+}
+
+.weather-icon {
+  display: grid;
+  place-content: center;
+}
+.weather-icon img {
+  margin: 10px auto -10px;
+  width: 80%;
+  -webkit-filter: drop-shadow(1px 1px 0 black) drop-shadow(-1px 1px 0 black) drop-shadow(1px -1px 0 black) drop-shadow(-1px -1px 0 black);
+  filter: drop-shadow(1px 1px 0 black) drop-shadow(-1px 1px 0 black) drop-shadow(1px -1px 0 black) drop-shadow(-1px -1px 0 black);
+}
+
+span[class^=temp-] {
+  display: block;
+  text-align: center;
+  font-size: 1.2rem;
+}
+span[class^=temp-]:first-child {
+  font-size: 1.5rem;
+}
+
+.hour {
+  position: absolute;
+  top: 0px;
+  left: 3px;
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.sun.hours {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.sun.hours img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+}
+
+.sunrise, .sunset, .noon {
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+}
+.sunrise .icon, .sunset .icon, .noon .icon {
+  font-size: 24px;
+  color: #555;
+}
+
+.sunrise {
+  left: 42px;
+}
+
+.sunset {
+  right: 42px;
+}
+
+.noon {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+body, html {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "FuraMono Nerd Font";
+  src: url("/Fura Mono Regular Nerd Font Complete.otf") format("opentype");
+}
+.main-container {
+  user-select: none;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  color: black;
+  font-family: "Open Sans", sans-serif;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+.main-container .grid-1x1 {
+  grid-column-end: span 1;
+  grid-row-end: span 1;
+}
+.main-container .grid-1x2 {
+  grid-column-end: span 1;
+  grid-row-end: span 2;
+}
+.main-container .grid-1x3 {
+  grid-column-end: span 1;
+  grid-row-end: span 3;
+}
+.main-container .grid-1x4 {
+  grid-column-end: span 1;
+  grid-row-end: span 4;
+}
+.main-container .grid-1x5 {
+  grid-column-end: span 1;
+  grid-row-end: span 5;
+}
+.main-container .grid-1x6 {
+  grid-column-end: span 1;
+  grid-row-end: span 6;
+}
+.main-container .grid-2x1 {
+  grid-column-end: span 2;
+  grid-row-end: span 1;
+}
+.main-container .grid-2x2 {
+  grid-column-end: span 2;
+  grid-row-end: span 2;
+}
+.main-container .grid-2x3 {
+  grid-column-end: span 2;
+  grid-row-end: span 3;
+}
+.main-container .grid-2x4 {
+  grid-column-end: span 2;
+  grid-row-end: span 4;
+}
+.main-container .grid-2x5 {
+  grid-column-end: span 2;
+  grid-row-end: span 5;
+}
+.main-container .grid-2x6 {
+  grid-column-end: span 2;
+  grid-row-end: span 6;
+}
+.main-container .grid-3x1 {
+  grid-column-end: span 3;
+  grid-row-end: span 1;
+}
+.main-container .grid-3x2 {
+  grid-column-end: span 3;
+  grid-row-end: span 2;
+}
+.main-container .grid-3x3 {
+  grid-column-end: span 3;
+  grid-row-end: span 3;
+}
+.main-container .grid-3x4 {
+  grid-column-end: span 3;
+  grid-row-end: span 4;
+}
+.main-container .grid-3x5 {
+  grid-column-end: span 3;
+  grid-row-end: span 5;
+}
+.main-container .grid-3x6 {
+  grid-column-end: span 3;
+  grid-row-end: span 6;
+}
+.main-container .grid-4x1 {
+  grid-column-end: span 4;
+  grid-row-end: span 1;
+}
+.main-container .grid-4x2 {
+  grid-column-end: span 4;
+  grid-row-end: span 2;
+}
+.main-container .grid-4x3 {
+  grid-column-end: span 4;
+  grid-row-end: span 3;
+}
+.main-container .grid-4x4 {
+  grid-column-end: span 4;
+  grid-row-end: span 4;
+}
+.main-container .grid-4x5 {
+  grid-column-end: span 4;
+  grid-row-end: span 5;
+}
+.main-container .grid-4x6 {
+  grid-column-end: span 4;
+  grid-row-end: span 6;
+}
+
+.small-text {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1;
+  color: #555;
+}
+
+.wrapper {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+}
+
+.block {
+  border: 4px solid black;
+}
+
+/*# sourceMappingURL=styles.css.map */

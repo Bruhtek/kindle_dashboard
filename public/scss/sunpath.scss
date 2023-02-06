@@ -1,0 +1,34 @@
+.sun.hours {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	img {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 90%;
+	}
+}
+
+.sunrise, .sunset, .noon {
+	position: absolute;
+	bottom: 10px;
+	text-align: center;
+
+	.icon {
+		font-size: 24px;
+		color: #555;
+	}
+}
+
+.sunrise {
+	left: 42px;
+}
+.sunset {
+	right: 42px;
+}
+.noon {
+	left: 50%;
+	transform: translateX(-50%);
+}

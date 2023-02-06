@@ -1,0 +1,21 @@
+<div class="sun hours">
+    <img src="/sun-path.svg" alt="sun path">
+    <div class="sunrise">
+        <div class="icon">
+            <i class="nf nf-md-weather_sunset_up"></i>
+        </div>
+        <div class="sunrise-time">{{getHHMM sunHours.sunrise}}</div>
+    </div>
+    <div class="sunset">
+        <div class="icon">
+            <i class="nf nf-md-weather_sunset_down"></i>
+        </div>
+        <div class="sunset-time">{{getHHMM sunHours.sunset}}</div>
+    </div>
+    <div class="noon">
+        <div class="icon">
+            <i class="nf nf-md-weather_sunny"></i>
+        </div>
+        <div class="noon-time">{{getHHMM sunHours.noon}}</div>
+    </div>
+</div>

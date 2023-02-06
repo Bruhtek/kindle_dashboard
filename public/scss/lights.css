@@ -1,0 +1,22 @@
+.lights {
+  width: 100%;
+  height: 100%;
+  display: inline-grid;
+  place-content: center;
+}
+.lights .container {
+  width: fit-content;
+  height: fit-content;
+  text-align: center;
+}
+.lights .light-toggle {
+  font-size: 170px;
+  margin: auto;
+  text-align: center;
+}
+.lights .small-text {
+  margin: auto;
+  text-align: center;
+}
+
+/*# sourceMappingURL=lights.css.map */

@@ -1,0 +1,24 @@
+<div class="clock item-container">
+    <p class="small-text">Hello, {{name}}</p>
+    <p class="time">00:00<i class="nf nf-fa-clock_o"></i></p>
+    <div class="small-date">
+        <span class="small-text">{{date}}</span>
+    </div>
+</div>
+
+<script>
+    const time = document.querySelector('.time');
+    const date = document.querySelector('.small-date .small-text');
+
+	const updateTime = () => {
+		const now = new Date();
+        let innerHtml = now.toLocaleTimeString("pl-PL",  { timeZone: "{{timezone}}" }).split(':').slice(0, 2).join(':');
+		innerHtml += '<i class="small-clock nf nf-fa-clock_o"></i>';
+		time.innerHTML = innerHtml;
+    }
+
+    setInterval(() => {
+        updateTime();
+    }, 60000);
+	updateTime();
+</script>

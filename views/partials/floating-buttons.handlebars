@@ -1,0 +1,25 @@
+<div class="floating-button" onclick="fullScreen()">
+    <i class="nf nf-fa-expand"></i>
+</div>
+<div class="floating-button floating-two" onclick="refresh()">
+    <i class="nf nf-fa-refresh"></i>
+</div>
+<div class="floating-button floating-three">
+    {{> battery}}
+</div>
+
+<script>
+    const elem = window.parent.document.documentElement;
+	let isFullscreen = false;
+    function fullScreen() {
+		if(isFullscreen) {
+			window.parent.document.exitFullscreen();
+        } else {
+		    elem.requestFullscreen();
+        }
+        isFullscreen = !isFullscreen;
+    }
+	function refresh() {
+        document.location.href = document.location.href;
+    }
+</script>
