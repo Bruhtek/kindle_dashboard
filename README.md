@@ -25,11 +25,15 @@ A dashboard for kindle devices. Web application that runs on a Kindle device, us
 
 ### Kindle
 1. Jailbreak your kindle.
+2. Disable sleep mode (write `~ds` in search bar on some kindles)
 2. Install [alpine_kindle](https://github.com/schuhumi/alpine_kindle)
-3. (Optional, possibly not required) Change the timezone (Example for `Europe/Berlin`) 
+3. Modify the script at `~/.local/bin/getBat.sh` by adding the following line after the `echo "${PR_BATTERY_RESULT}%"` line:
+    - `wget "http://YOUR_SERVER_ADRESS:3000/api/setBattery?battery=${PR_BATTERY_RESULT}" -qO- > /dev/null`
+    - It makes the Kindle send the battery level to the server every time the battery level is updated (to show the battery level on the dashboard)
+4. (Optional, possibly not required) Change the timezone (Example for `Europe/Berlin`) 
     - `sudo apk add tzdata --allow-untrusted`
     - `setup-timezone -z Europe/Berlin`
     - `echo Europe/Berlin > /etc/timezone`
     - Check with `date`
-4. Open Chromium browser, and go to the server's IP address, port 3000
-5. You're all set!
+5. Open Chromium browser, and go to the server's IP address, port 3000
+6. You're all set!
