@@ -36,6 +36,7 @@ export const getWeatherForecast = async () => {
 		if(time.getTime() === now.getTime()) {
 			forecast.push({
 				hour: time.toLocaleTimeString("pl-PL", {
+					timeZone: process.env.TIMEZONE,
 					hour: "2-digit",
 				}).split(":")[0],
 				plusDay: now.getDate() !== time.getDate(),
