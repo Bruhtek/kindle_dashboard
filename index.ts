@@ -5,7 +5,7 @@ import router from "./src/apiRouter.js";
 
 dotenv.config();
 
-import { clockHelper } from "./helpers/clock.js";
+import { clockHelper } from "./src/clock.js";
 import { getLightStatus } from "./src/utils.js";
 import { getSunnyHours, getWeatherForecast } from "./src/weather.js";
 

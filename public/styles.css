@@ -8,8 +8,8 @@
   border: 4px solid black;
   text-align: center;
   display: grid;
-  font-size: 25px;
   place-content: center;
+  font-size: 25px;
   user-select: none;
 }
 

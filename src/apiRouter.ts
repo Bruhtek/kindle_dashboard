@@ -1,6 +1,8 @@
 import express from "express";
 import { batteryInfo } from "./utils.js";
 import { getSunnyHours, getWeatherForecast } from "./weather.js";
+import { getCalendarObjects, getCalendars, getDataFromCalendarObject } from "./calendar.js";
+import { makeImage } from "./image.js";
 
 const router = express.Router();
 
@@ -56,5 +58,30 @@ router.get("/sunnyHours", async (req, res) => {
 	const sunHours = await getSunnyHours();
 	return res.status(200).json(sunHours);
 });
+
+router.get("/calendars", async (req, res) => {
+	const calendars = await getCalendars();
+	return res.status(200).json(calendars);
+})
+router.get("/calendarsObjs", async (req, res) => {
+	const calendarObj = await getCalendarObjects();
+	return res.status(200).json(calendarObj);
+});
+
+router.get("/calendarParsed", async (req, res) => {
+	const calendarObjs = await getCalendarObjects();
+	const parsed = [];
+	for(const calendarObj of calendarObjs) {
+		for(const obj of calendarObj) {
+			parsed.push(await getDataFromCalendarObject(obj));
+		}
+	}
+	return res.status(200).json(parsed);
+})
+
+router.get("/puppeteer", async (req, res) => {
+	makeImage();
+	return res.status(200).json(true);
+})
 
 export default router;
