@@ -1,0 +1,64 @@
+.solar-path {
+  width: 100%;
+  height: 100%;
+}
+.solar-path .sun-path {
+  width: 100%;
+  height: calc(100% - 40px);
+  position: relative;
+}
+.solar-path .sun-path img {
+  width: 95%;
+  margin: auto;
+  display: block;
+}
+.solar-path .sun-path .item {
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 40px;
+}
+.solar-path .sun-path .sunrise {
+  left: 55px;
+}
+.solar-path .sun-path .noon {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.solar-path .sun-path .sunset {
+  right: 55px;
+}
+.solar-path .sun-path .sunhours {
+  top: 0;
+  left: 55px;
+  bottom: unset;
+}
+.solar-path .sun-path .sunhours-left {
+  top: 0;
+  right: 55px;
+  bottom: unset;
+}
+.solar-path .info {
+  height: 40px;
+}
+.solar-path .info i {
+  font-size: 36px;
+  position: relative;
+}
+.solar-path .info i i {
+  font-size: 20px;
+  position: absolute;
+  right: -12px;
+  bottom: 0;
+}
+.solar-path .info .item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.solar-path .info .item p {
+  margin-left: 10px;
+  color: #555;
+}
+
+/*# sourceMappingURL=solar-path.css.map */

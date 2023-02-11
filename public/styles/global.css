@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  color: black;
+  overflow: hidden;
+  font-family: "Open Sans", sans-serif;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+@supports not (-moz-appearance: none) {
+  .wrapper.horizontal {
+    transform: rotate(90deg);
+    transform-origin: bottom left;
+    position: absolute;
+    top: -100vw;
+    left: 0;
+    height: 100vw;
+    width: 100vh;
+  }
+}
+
+.secondary {
+  color: #555;
+}
+
+.border-left {
+  border-left: 3px solid black;
+}
+
+.border-right {
+  border-right: 3px solid black;
+}
+
+.border-top {
+  border-top: 3px solid black;
+}
+
+.border-bottom {
+  border-bottom: 3px solid black;
+}
+
+/*# sourceMappingURL=global.css.map */

@@ -1,0 +1,42 @@
+<div class="clock">
+	<div class="greeting secondary">
+		Hello, Bartek
+	</div>
+	<div class="clock-face">
+		11:27
+	</div>
+	<div class="date secondary border-bottom">
+		Thursday, 10th of Feb
+	</div>
+	{{> partials/controls}}
+</div>
+
+<script>
+	const updateClock = () => {
+		const clock = document.querySelector('.clock-face');
+		const now = new Date();
+		const hours = now.getHours();
+		const minutes = now.getMinutes();
+
+		clock.textContent = `${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
+	};
+	const updateDate = () => {
+		const date = document.querySelector('.date');
+		const now = new Date();
+		const day = now.getDate();
+		const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+		const dayName = days[now.getDay()];
+		const monthName = now.toLocaleString('default', { month: 'long' });
+
+		const suffix = day % 10 === 1 ? 'st' : day % 10 === 2 ? 'nd' : day % 10 === 3 ? 'rd' : 'th';
+
+		date.textContent = `${dayName}, ${day}${suffix} of ${monthName}`;
+	};
+
+	updateClock();
+	updateDate();
+
+
+	setInterval(updateClock, 60000);
+</script>
