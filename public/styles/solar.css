@@ -1,0 +1,39 @@
+.solar {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+.solar .item {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.solar .item i {
+  font-size: 36px;
+  position: relative;
+}
+.solar .item i i {
+  font-size: 20px;
+  position: absolute;
+  right: -12px;
+  bottom: 0;
+}
+.solar .item .subtext {
+  color: #555;
+  font-size: 0.8rem;
+}
+.solar .item.path {
+  grid-column-start: 1;
+  grid-column-end: span 2;
+}
+.solar .item.path img {
+  width: 90%;
+}
+
+/*# sourceMappingURL=solar.css.map */

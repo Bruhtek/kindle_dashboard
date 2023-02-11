@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+	background-color: white;
+	color: black;
+	overflow: hidden;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.wrapper {
+	width: 100%;
+	height: 100%;
+	border: 0;
+	@supports not(-moz-appearance:none) {
+		&.horizontal {
+			transform: rotate(90deg);
+			transform-origin: bottom left;
+			position: absolute;
+			top: -100vw;
+			left: 0;
+			height: 100vw;
+			width: 100vh;
+		}
+	}
+}
+
+.secondary {
+	color: #555;
+}
+
+$directions: (left, right, top, bottom);
+@for $i from 1 through length($directions) {
+	.border-#{nth($directions, $i)} {
+		border-#{nth($directions, $i)}: 3px solid black;
+	}
+}

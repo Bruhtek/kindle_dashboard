@@ -1,0 +1,10 @@
+// for grid sized to 8x6
+
+@for $i from 1 through 8 {
+	@for $j from 1 through 6 {
+		.grid-#{$i}x#{$j} {
+			grid-column-end: span $i;
+			grid-row-end: span $j;
+		}
+	}
+}

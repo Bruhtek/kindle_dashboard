@@ -1,0 +1,18 @@
+<div class="weather">
+	{{#each forecast}}
+		<div class="weather-item">
+			<img src="/weather-icons/{{this.symbol_code}}.png" alt="{{this.symbol_code}}">
+			<p class="secondary hour">
+				{{this.hour}}
+				{{#if this.plusDay}}
+					<span class="plus-day">+1</span>
+				{{/if}}
+			</p>
+			<p class="description">{{this.description}}</p>
+			<p><i class="fa-solid fa-temperature-half"></i>{{this.temperature}}°C</p>
+			<p><i class="fa-solid fa-droplet"></i>{{this.precipitation}} mm</p>
+			<p><i class="fa-solid fa-wind"></i>{{this.wind_speed}} m/s</p>
+			<p><i class="fa-solid fa-umbrella"></i>{{this.humidity}}%</p>
+		</div>
+	{{/each}}
+</div>

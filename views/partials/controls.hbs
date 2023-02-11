@@ -1,0 +1,33 @@
+<div class="controls">
+	<div class="control control-wide">
+		{{> partials/battery}}
+	</div>
+	<div class="control" onclick="refreshPage()">
+		<i class="fa-solid fa-rotate"></i>
+	</div>
+	<div class="control" id="fullscreen" onclick="toggleFullScreen()">
+		<i class="fa-solid fa-down-left-and-up-right-to-center"></i>
+	</div>
+</div>
+
+<script>
+	const elem = window.parent.document.documentElement;
+	const toggleFullScreen = () => {
+		if (!window.parent.document.fullscreenElement) {
+			elem.requestFullscreen();
+			document.querySelector('#fullscreen').innerHTML = '<i class="fa-solid fa-down-left-and-up-right-to-center"></i>';
+		} else {
+			if (window.parent.document.exitFullscreen) {
+				window.parent.document.exitFullscreen();
+				document.querySelector('#fullscreen').innerHTML = '<i class="fa-solid fa-up-right-and-down-left-from-center"></i>';
+			}
+		}
+	};
+	const refreshPage = () => {
+		window.location.reload();
+	};
+
+	const now = new Date();
+	const nextHour = (60 - now.getMinutes()) * 60 * 1000;
+	setInterval(refreshPage, nextHour);
+</script>

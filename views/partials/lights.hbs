@@ -1,0 +1,20 @@
+<div class="lights" onclick="toggleLights()">
+	<i class="{{#if lights}}fa-solid{{else}}fa-regular{{/if}} fa-lightbulb" id="light-icon"></i>
+	<p>Bedroom lights</p>
+</div>
+
+<script>
+	const lightIcon = document.getElementById('light-icon');
+
+	const toggleLights = async () => {
+		const req = await fetch('/api/toggleLight');
+		const res = await req.json();
+		if (res.status === 'on') {
+			lightIcon.classList.remove('fa-regular');
+			lightIcon.classList.add('fa-solid');
+		} else {
+			lightIcon.classList.remove('fa-solid');
+			lightIcon.classList.add('fa-regular');
+		}
+	};
+</script>

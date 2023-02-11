@@ -1,0 +1,42 @@
+.weather {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.weather .weather-item {
+  text-align: center;
+  position: relative;
+}
+.weather .weather-item img {
+  width: 80%;
+  -webkit-filter: drop-shadow(1px 1px 0 black) drop-shadow(-1px 1px 0 black) drop-shadow(1px -1px 0 black) drop-shadow(-1px -1px 0 black);
+  filter: drop-shadow(1px 1px 0 black) drop-shadow(-1px 1px 0 black) drop-shadow(1px -1px 0 black) drop-shadow(-1px -1px 0 black);
+}
+.weather .weather-item p.hour {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+}
+.weather .weather-item p.hour .plus-day {
+  font-size: 0.6em;
+  position: absolute;
+  top: 0;
+  right: -15px;
+}
+.weather .weather-item p.description {
+  margin-top: 10px;
+}
+.weather .weather-item p:not(.hour):not(.description) {
+  text-align: left;
+  width: 100%;
+  padding-left: 10px;
+}
+.weather .weather-item p:not(.hour):not(.description) i {
+  text-align: center;
+  width: 20px;
+  margin-right: 10px;
+}
+
+/*# sourceMappingURL=weather.css.map */

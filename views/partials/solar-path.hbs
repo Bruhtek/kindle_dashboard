@@ -1,0 +1,33 @@
+<div class="solar-path">
+	<div class="info">
+		<div class="item moonphase">
+			<i class="wi wi-moon-alt-{{moonPhaseIcon solarData.moonphase}}"></i>
+			<p class="subtext">{{moonPhaseName solarData.moonphase}}</p>
+		</div>
+	</div>
+	<div class="sun-path">
+		<img src="/sun-path.svg" alt="Sun Path"/>
+		<div class="item sunrise secondary">
+			<i class="wi wi-sunrise"></i>
+			<p class="subtext">{{getHour solarData.sunrise}}</p>
+		</div>
+		<div class="item sunset secondary">
+			<i class="wi wi-sunset"></i>
+			<p class="subtext">{{getHour solarData.sunset}}</p>
+		</div>
+		<div class="item noon secondary">
+			<i class="wi wi-day-sunny"></i>
+			<p class="subtext">{{getHour solarData.noon}}</p>
+		</div>
+		<div class="item sunhours secondary">
+			<i class="wi wi-day-sunny"></i>
+			<p class="subtext">{{round solarData.sunHours}}h</p>
+		</div>
+		<div class="item sunhours-left combine-icons secondary">
+			<i class="wi wi-day-sunny"><i class="wi wi-time-1"></i></i>
+			<p class="subtext">
+				{{roundAndNotMinus solarData.sunHoursLeft}}h
+			</p>
+		</div>
+	</div>
+</div>
