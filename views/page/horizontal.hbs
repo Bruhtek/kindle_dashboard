@@ -13,20 +13,22 @@
 		<link rel="stylesheet" href="/styles/controls.css" type="text/css">
 		<link rel="stylesheet" href="/styles/battery.css" type="text/css">
 		<link rel="stylesheet" href="/styles/weather.css" type="text/css">
+		<link rel="stylesheet" href="/styles/weather-horizontal.css" type="text/css">
 		<link rel="stylesheet" href="/styles/weather-icons.min.css" type="text/css">
 		<link rel="stylesheet" href="/styles/solar.css" type="text/css">
+		<link rel="stylesheet" href="/styles/lights.css" type="text/css">
 	{{/inline}}
 
 	{{#*inline "body"}}
 		<div class="grid-display">
-			<div class="grid-6x3">
+			<div class="grid-6x2">
 				{{> partials/clock}}
 			</div>
-			<div class="grid-2x6">
-				{{> partials/solar-bodies}}
+			<div class="grid-2x2">
+				{{> partials/lights}}
 			</div>
-			<div class="grid-6x3">
-				{{> partials/weather}}
+			<div class="grid-8x2">
+				{{> partials/weather-horizontal}}
 			</div>
 
 		</div>

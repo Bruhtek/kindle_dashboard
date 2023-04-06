@@ -1,0 +1,33 @@
+div.weather {
+	padding-top: 2em;
+
+	.weather-item {
+		height: 100%;
+
+		img {
+		}
+
+		p.hour {
+		}
+
+		p.description {
+			display: grid;
+			place-content: center;
+			place-items: center;
+			height: 3em;
+			margin-bottom: 10px
+		}
+
+		p:not(.hour):not(.description) {
+			padding-left: 0;
+
+			i {
+				margin-right: 0;
+			}
+		}
+
+		p.temperature {
+			margin-bottom: 10px;
+		}
+	}
+}

@@ -1,0 +1,24 @@
+div.weather {
+  padding-top: 2em;
+}
+div.weather .weather-item {
+  height: 100%;
+}
+div.weather .weather-item p.description {
+  display: grid;
+  place-content: center;
+  place-items: center;
+  height: 3em;
+  margin-bottom: 10px;
+}
+div.weather .weather-item p:not(.hour):not(.description) {
+  padding-left: 0;
+}
+div.weather .weather-item p:not(.hour):not(.description) i {
+  margin-right: 0;
+}
+div.weather .weather-item p.temperature {
+  margin-bottom: 10px;
+}
+
+/*# sourceMappingURL=weather-horizontal.css.map */

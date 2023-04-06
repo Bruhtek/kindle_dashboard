@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { getBattery } from "./api";
-import { getSolarData, getWeatherForecast } from "../api/weather";
+import { getHourlyWeatherForecast, getSolarData, getWeatherForecast } from "../api/weather";
 import { getLightStatus } from "../api/hass";
 
 const mainRouter = Router();
@@ -14,7 +14,7 @@ mainRouter.get("/horizontal", (req, res) => {
 mainRouter.get("/page/horizontal", async (req, res) => {
 	return res.render("page/horizontal", {
 		battery: getBattery(),
-		forecast: await getWeatherForecast(),
+		forecast: await getHourlyWeatherForecast(),
 		solarData: await getSolarData(),
 	});
 });
@@ -26,7 +26,7 @@ mainRouter.get("/page/vertical", async (req, res) => {
 		battery: getBattery(),
 		forecast: await getWeatherForecast(),
 		solarData: await getSolarData(),
-		lights: await getLightStatus(),
+		//lights: await getLightStatus(),
 	});
 });
 

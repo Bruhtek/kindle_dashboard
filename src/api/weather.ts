@@ -14,28 +14,28 @@ const getWeatherLegend = async () => {
 		}
 	});
 
-	if(req.status !== 200) {
+	if (req.status !== 200) {
 		console.log("Error: " + req.status);
 		return {};
 	}
 
 	return await req.json();
-}
+};
 
-export const getWeatherForecast = async () => {
-	const req = await fetch(`https://api.met.no/weatherapi/locationforecast/2.0/complete.json?lat=${lat}&lon=${lon}`, {
+export const getHourlyWeatherForecast = async () => {
+	const res = await fetch(`https://api.met.no/weatherapi/locationforecast/2.0/complete.json?lat=${lat}&lon=${lon}`, {
 		method: "GET",
 		headers: {
 			"User-Agent": identifier ?? "Generic",
 		}
 	});
 
-	if(req.status !== 200) {
-		console.log("Error: " + req.status);
+	if (res.status !== 200) {
+		console.log("Error: " + res.status);
 		return false;
 	}
 
-	let data = await req.json();
+	let data = await res.json();
 
 	let now = new Date();
 	now.setMinutes(0);
@@ -44,9 +44,66 @@ export const getWeatherForecast = async () => {
 
 	// find 5 elements separated by 6 hours
 	let forecast: WeatherForecast[] = [];
-	for(let i = 0; i < data.properties.timeseries.length && forecast.length < 5; i++) {
+	for (let i = 0; i < data.properties.timeseries.length && forecast.length < 10; i++) {
 		let time = new Date(data.properties.timeseries[i].time);
-		if(time.getTime() === now.getTime()) {
+		if (time.getTime() === now.getTime()) {
+			forecast.push({
+				hour: time.toLocaleTimeString("pl-PL", {
+					timeZone: process.env.TIMEZONE,
+					hour: "2-digit",
+				}).split(":")[0],
+				plusDay: new Date().getDate() !== time.getDate(),
+				symbol_code: data.properties.timeseries[i].data.next_1_hours.summary.symbol_code,
+				temperature: data.properties.timeseries[i].data.instant.details.air_temperature,
+				precipitation: data.properties.timeseries[i].data.next_1_hours.details.precipitation_amount,
+				wind_speed: data.properties.timeseries[i].data.instant.details.wind_speed,
+				description: "",
+				humidity: data.properties.timeseries[i].data.instant.details.relative_humidity,
+				wind_direction: data.properties.timeseries[i].data.instant.details.wind_from_direction,
+			});
+			now.setHours(now.getHours() + 1);
+		}
+	}
+	forecast = forecast.slice(0, 10);
+
+	const legend = await getWeatherLegend();
+	for (let i = 0; i < forecast.length; i++) {
+		let symbol_code = forecast[i].symbol_code.split("_")[0];
+		if (legend[symbol_code]) {
+			forecast[i].description = legend[symbol_code].desc_en;
+			continue;
+		}
+		forecast[i].description = "Error";
+	}
+
+	return forecast;
+};
+
+export const getWeatherForecast = async () => {
+	const res = await fetch(`https://api.met.no/weatherapi/locationforecast/2.0/complete.json?lat=${lat}&lon=${lon}`, {
+		method: "GET",
+		headers: {
+			"User-Agent": identifier ?? "Generic",
+		}
+	});
+
+	if (res.status !== 200) {
+		console.log("Error: " + res.status);
+		return false;
+	}
+
+	let data = await res.json();
+
+	let now = new Date();
+	now.setMinutes(0);
+	now.setSeconds(0);
+	now.setMilliseconds(0);
+
+	// find 5 elements separated by 6 hours
+	let forecast: WeatherForecast[] = [];
+	for (let i = 0; i < data.properties.timeseries.length && forecast.length < 5; i++) {
+		let time = new Date(data.properties.timeseries[i].time);
+		if (time.getTime() === now.getTime()) {
 			forecast.push({
 				hour: time.toLocaleTimeString("pl-PL", {
 					timeZone: process.env.TIMEZONE,
@@ -67,9 +124,9 @@ export const getWeatherForecast = async () => {
 	forecast = forecast.slice(0, 5);
 
 	const legend = await getWeatherLegend();
-	for(let i = 0; i < forecast.length; i++) {
+	for (let i = 0; i < forecast.length; i++) {
 		let symbol_code = forecast[i].symbol_code.split("_")[0];
-		if(legend[symbol_code]) {
+		if (legend[symbol_code]) {
 			forecast[i].description = legend[symbol_code].desc_en;
 			continue;
 		}
@@ -77,7 +134,7 @@ export const getWeatherForecast = async () => {
 	}
 
 	return forecast;
-}
+};
 
 
 export const getSolarData = async () => {
@@ -95,7 +152,7 @@ export const getSolarData = async () => {
 		}
 	});
 
-	if(req.status !== 200) {
+	if (req.status !== 200) {
 		console.log("Error: " + req.status);
 		return false;
 	}
@@ -117,8 +174,8 @@ export const getSolarData = async () => {
 		sunset,
 		noon,
 		moonphase,
-	}
-}
+	};
+};
 
 type WeatherForecast = {
 	hour: string,
