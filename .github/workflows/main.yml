@@ -1,26 +1,43 @@
-name: Create and publish a Docker image
+name: Build and push to ghcr
 
 on:
   push:
-    branches: ['master']
-
-env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+    branches:
+      - master
+    tags:
+      - 'v*'
 
 jobs:
-  build-and-publish-head:
+  deploy-docker:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2.5.0 # Checking out the repo
-    - name: Get current date
-      id: date
-      run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
-    - name: Build and publish "head" Docker image
-      uses: VaultVulp/gp-docker-action@1.6.0
-      with:
-        github-token: ${{ secrets.GH_TOKEN  }} # Provide GH_TOKEN  to login into the GitHub Packages
-        image-name: kindle_dashboard # Provide Docker image name
-        additional-image-tags: ${{ steps.date.outputs.date }}
-        custom-args: --platform=linux/arm64,linux/amd64 
+      - uses: actions/checkout@v2
+
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: ghcr.io/bruhtek/kindle_dashboard
+          flavor: latest=true
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+
+      - name: Login to image repository
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GH_TOKEN }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: docker/dockerfile/hello-world/Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
