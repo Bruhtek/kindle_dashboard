@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:18-slim
 
 LABEL org.opencontainers.image.source=https://github.com/Bruhtek/kindle_dashboard
 
