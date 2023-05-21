@@ -61,6 +61,7 @@ mainRouter.get("/render/vertical", async (req, res) => {
 				deviceScaleFactor: 2,
 			},
 			headless: "new",
+			args: ["--no-sandbox", "--disable-setuid-sandbox"],
 		});
 
 		const page = await browser.newPage();
