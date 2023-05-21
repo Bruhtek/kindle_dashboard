@@ -16,6 +16,7 @@ mainRouter.get("/page/horizontal", async (req, res) => {
 		battery: getBattery(),
 		forecast: await getHourlyWeatherForecast(),
 		solarData: await getSolarData(),
+		lights: await getLightStatus(),
 	});
 });
 mainRouter.get("/vertical", (req, res) => {
@@ -26,7 +27,7 @@ mainRouter.get("/page/vertical", async (req, res) => {
 		battery: getBattery(),
 		forecast: await getWeatherForecast(),
 		solarData: await getSolarData(),
-		//lights: await getLightStatus(),
+		lights: await getLightStatus(),
 	});
 });
 
