@@ -1,0 +1,37 @@
+<table class="weather">
+	<tr class="weather-item">
+		<td colspan="2">
+			Weather forecast
+		</td>
+		<td><i class="fa-solid fa-temperature-half"></i></td>
+		<td><i class="fa-solid fa-droplet"></i></td>
+		<td><i class="fa-solid fa-wind"></i></td>
+		<td><i class="fa-solid fa-umbrella"></i></td>
+	</tr>
+	{{#each forecast}}
+		<tr class="weather-item">
+			<td>
+				<img src="/weather-icons/{{this.symbol_code}}.png" alt="{{this.symbol_code}}">
+				<p class="secondary hour">
+					{{this.hour}}
+				</p>
+				{{#if this.plusDay}}
+					<span class="plus-day">+1</span>
+				{{/if}}
+			</td>
+			<td class="description">{{this.description}}</td>
+			<td>
+				{{this.temperature}}<br> °C
+			</td>
+			<td>
+				{{this.precipitation}}<br> mm
+			</td>
+			<td>
+				{{this.wind_speed}}<br> m/s
+			</td>
+			<td>
+				{{this.humidity}}<br> %
+			</td>
+		</tr>
+	{{/each}}
+</table>

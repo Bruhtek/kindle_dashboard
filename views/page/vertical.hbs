@@ -10,28 +10,23 @@
 		<link rel="stylesheet" href="/styles/grid.css" type="text/css">
 
 		<link rel="stylesheet" href="/styles/clock.css" type="text/css">
-		<link rel="stylesheet" href="/styles/controls.css" type="text/css">
-		<link rel="stylesheet" href="/styles/battery.css" type="text/css">
-		<link rel="stylesheet" href="/styles/weather.css" type="text/css">
+		<link rel="stylesheet" href="/styles/date.css" type="text/css">
+		<link rel="stylesheet" href="/styles/calendar.css" type="text/css">
 		<link rel="stylesheet" href="/styles/weather-icons.min.css" type="text/css">
-		<link rel="stylesheet" href="/styles/solar-path.css" type="text/css">
-		<link rel="stylesheet" href="/styles/lights.css" type="text/css">
+		<link rel="stylesheet" href="/styles/weather-vertical.css" type="text/css">
 
 	{{/inline}}
 
 	{{#*inline "body"}}
 		<div class="grid-display">
-			<div class="grid-6x3">
-				{{> partials/clock}}
+			<div class="grid-6x1">
+				{{> partials/date}}
 			</div>
-			<div class="grid-4x2">
-				{{> partials/solar-path}}
+			<div class="grid-4x6">
+				{{> partials/weather-vertical}}
 			</div>
-			<div class="grid-2x2">
-				{{> partials/lights}}
-			</div>
-			<div class="grid-6x3">
-				{{> partials/weather}}
+			<div class="grid-2x6">
+				{{> partials/calendar}}
 			</div>
 		</div>
 	{{/inline}}

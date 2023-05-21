@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@400;500;600;700&display=swap");
+
+.weather {
+	width: 100%;
+	font-family: "Overpass", sans-serif;
+}
+
+.weather td {
+	border-bottom: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+.weather .weather-item:not(:first-child) img {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 3rem;
+	height: 3rem;
+	-webkit-filter: drop-shadow(1px 1px 0 black) drop-shadow(-1px 1px 0 black) drop-shadow(1px -1px 0 black) drop-shadow(-1px -1px 0 black);
+	filter: drop-shadow(1px 1px 0 black) drop-shadow(-1px 1px 0 black) drop-shadow(1px -1px 0 black) drop-shadow(-1px -1px 0 black);
+}
+
+.weather .weather-item:not(:first-child) td {
+	position: relative;
+	height: 3.5rem;
+}
+
+.weather .weather-item:not(:first-child) td:first-child {
+	width: 5rem;
+}
+
+.weather .weather-item:not(:first-child) td:nth-child(n+2) {
+	text-align: center;
+	min-width: 3rem;
+}
+
+.weather .weather-item:not(:first-child) td:nth-child(n+3) {
+	font-size: 0.9rem;
+}
+
+.weather .weather-item:not(:first-child) .hour {
+	position: absolute;
+	top: 0;
+	left: 5px;
+}
+
+.weather .weather-item:not(:first-child) .plus-day {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	font-size: 0.8rem;
+}
+
+.weather .weather-item:first-child td {
+	text-align: center;
+	font-size: 1.5rem;
+}
+
+.weather .weather-item:first-child td:first-child {
+	font-size: 1.2rem;
+}
+
+/*# sourceMappingURL=weather-vertical.css.map */

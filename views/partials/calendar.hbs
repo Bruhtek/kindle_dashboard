@@ -1,0 +1,24 @@
+<div class="calendar">
+	<div class="events today">
+		<p class="title">Today</p>
+		{{#with calendar}}
+			{{#each todayEvents}}
+				<div class="event">
+					<p class="event-title">{{summary}}</p>
+					<p class="event-time">{{getTime eventStart}}</p>
+				</div>
+			{{/each}}
+		{{/with}}
+	</div>
+	<div class="events tomorrow">
+		<p class="title">Tomorrow</p>
+		{{#with calendar}}
+			{{#each tommorowEvents}}
+				<div class="event">
+					<p class="event-title">{{summary}}</p>
+					<p class="event-time">{{getTime eventStart}}</p>
+				</div>
+			{{/each}}
+		{{/with}}
+	</div>
+</div>

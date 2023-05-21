@@ -3,6 +3,7 @@ import { create } from "express-handlebars";
 import dotenv from "dotenv";
 import mainRouter from "./routers/main";
 import apiRouter from "./routers/api";
+import { getCalendarEvents } from "./api/caldav";
 
 dotenv.config();
 
@@ -54,6 +55,16 @@ const handlebars = create({
 		},
 		roundAndNotMinus: (value: number) => {
 			return Math.max(Math.round(value), 0);
+		},
+		getDate: () => {
+			const now = new Date();
+			const pad = (n: number) => (n < 10 ? "0" + n : n);
+			return now.toLocaleDateString("en-GB", {weekday: "long", year: "numeric", month: "long", day: "numeric"});
+		},
+		getTime: (value: string) => {
+			const date = new Date(value);
+			const pad = (n: number) => (n < 10 ? "0" + n : n);
+			return `${pad(date.getHours())}:${pad(date.getMinutes())}`;
 		}
 	}
 });
@@ -68,6 +79,8 @@ app.use("/", mainRouter);
 app.use("/api", apiRouter);
 
 app.use(express.static("public"));
+
+getCalendarEvents();
 
 app.listen(process.env.PORT, () => {
 	console.log(`Server started on port ${process.env.PORT}`);

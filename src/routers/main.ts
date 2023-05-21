@@ -2,6 +2,7 @@ import { Router } from "express";
 import { getBattery } from "./api";
 import { getHourlyWeatherForecast, getSolarData, getWeatherForecast } from "../api/weather";
 import { getLightStatus } from "../api/hass";
+import { getCalendarEvents } from "../api/caldav";
 
 const mainRouter = Router();
 
@@ -22,12 +23,15 @@ mainRouter.get("/page/horizontal", async (req, res) => {
 mainRouter.get("/vertical", (req, res) => {
 	return res.render("vertical");
 });
+
+
 mainRouter.get("/page/vertical", async (req, res) => {
+
 	return res.render("page/vertical", {
 		battery: getBattery(),
-		forecast: await getWeatherForecast(),
+		forecast: await getHourlyWeatherForecast(),
 		solarData: await getSolarData(),
-		lights: await getLightStatus(),
+		calendar: await getCalendarEvents(),
 	});
 });
 

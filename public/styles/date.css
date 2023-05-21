@@ -1,0 +1,25 @@
+.date-display {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.date-display .battery {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 1.4rem;
+  color: black;
+}
+.date-display .current-date {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  white-space: nowrap;
+}
+.date-display .current-date .secondary {
+  font-size: 1.2rem;
+}
+
+/*# sourceMappingURL=date.css.map */
