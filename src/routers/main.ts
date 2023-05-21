@@ -25,17 +25,22 @@ mainRouter.get("/vertical", (req, res) => {
 	return res.render("vertical");
 });
 
+let cachedCalendar: any = {};
+cachedCalendar = getCalendarEvents();
+
 
 mainRouter.get("/page/vertical", async (req, res) => {
-
 	try {
-		const calendar = await getCalendarEvents();
+		if (!cachedCalendar.todayEvents) {
+			cachedCalendar = await getCalendarEvents();
+		}
+
 
 		return res.render("page/vertical", {
 			battery: getBattery(),
 			forecast: await getHourlyWeatherForecast(),
 			solarData: await getSolarData(),
-			calendar: calendar,
+			calendar: cachedCalendar,
 		});
 	} catch (e) {
 		return res.render("page/vertical", {
@@ -46,6 +51,7 @@ mainRouter.get("/page/vertical", async (req, res) => {
 		});
 	}
 });
+
 
 mainRouter.get("/render/vertical", async (req, res) => {
 	const battery = req.query.battery;

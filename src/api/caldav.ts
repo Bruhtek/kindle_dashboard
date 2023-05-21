@@ -33,6 +33,7 @@ export async function getCalendarEvents() {
 	const todayEvents = await fetchEventsForDay(0);
 	const tommorowEvents = await fetchEventsForDay(1);
 
+	console.log("Finished calendar operations!");
 	return {
 		todayEvents,
 		tommorowEvents
