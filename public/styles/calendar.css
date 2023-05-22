@@ -12,17 +12,24 @@
   text-align: center;
   width: max-content;
   margin: auto auto 0.5rem;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 3px solid #999;
+}
+.calendar .events .no-events {
+  font-size: 1.2rem;
+  text-align: center;
 }
 .calendar .tomorrow {
-  border-top: 1px solid #ccc;
+  border-top: 1px solid black;
   padding-top: 0.5rem;
 }
 .calendar .event {
   display: flex;
   width: 100%;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid #999;
 }
 .calendar .event .event-title {
   margin-left: 1rem;

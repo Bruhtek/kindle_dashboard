@@ -63,8 +63,16 @@ const handlebars = create({
 		},
 		getTime: (value: string) => {
 			const date = new Date(value);
+
 			const pad = (n: number) => (n < 10 ? "0" + n : n);
 			return `${pad(date.getHours())}:${pad(date.getMinutes())}`;
+		},
+		noEvents: (events: any[], options: any) => {
+			if (events.length == 0) {
+				return options.fn(this);
+			} else {
+				return options.inverse(this);
+			}
 		}
 	}
 });

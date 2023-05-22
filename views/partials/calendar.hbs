@@ -2,23 +2,31 @@
 	<div class="events today">
 		<p class="title">Today</p>
 		{{#with calendar}}
-			{{#each todayEvents}}
-				<div class="event">
-					<p class="event-title">{{summary}}</p>
-					<p class="event-time">{{getTime eventStart}}</p>
-				</div>
-			{{/each}}
+			{{#noEvents todayEvents}}
+				<p class="no-events">No events today!</p>
+			{{else}}
+				{{#each todayEvents}}
+					<div class="event">
+						<p class="event-title">{{summary}}</p>
+						<p class="event-time">{{getTime eventStart}}</p>
+					</div>
+				{{/each}}
+			{{/noEvents}}
 		{{/with}}
 	</div>
 	<div class="events tomorrow">
 		<p class="title">Tomorrow</p>
 		{{#with calendar}}
-			{{#each tommorowEvents}}
-				<div class="event">
-					<p class="event-title">{{summary}}</p>
-					<p class="event-time">{{getTime eventStart}}</p>
-				</div>
-			{{/each}}
+			{{#noEvents tommorowEvents}}
+				<p class="no-events">No events tomorrow!</p>
+			{{else}}
+				{{#each ../tommorowEvents}}
+					<div class="event">
+						<p class="event-title">{{summary}}</p>
+						<p class="event-time">{{getTime eventStart}}</p>
+					</div>
+				{{/each}}
+			{{/noEvents}}
 		{{/with}}
 	</div>
 </div>
