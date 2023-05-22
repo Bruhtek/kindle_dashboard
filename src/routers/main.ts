@@ -77,6 +77,9 @@ mainRouter.get("/render/vertical", async (req, res) => {
 				"--disable-setuid-sandbox",
 				"--disable-dev-shm-usage",
 				"--disable-gpu",
+				"--disable-audio-output",
+				"--headless",
+				"--single-process",
 			],
 		});
 
@@ -89,9 +92,9 @@ mainRouter.get("/render/vertical", async (req, res) => {
 			type: "png",
 		});
 
-		await browser.close();
-
 		res.set("Content-Type", "image/png").send(buffer);
+
+		await browser.close();
 	} catch (e) {
 		console.log(e);
 		res.status(500).end();
