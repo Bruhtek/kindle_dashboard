@@ -77,6 +77,9 @@ mainRouter.get("/render/vertical", async (req, res) => {
 				"--disable-setuid-sandbox",
 				"--disable-dev-shm-usage",
 				"--disable-gpu",
+				"--disable-audio-output",
+				"--headless",
+				"--single-process",
 			],
 		});
 
