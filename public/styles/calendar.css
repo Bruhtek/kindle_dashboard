@@ -4,7 +4,6 @@
 }
 .calendar .events {
   width: 100%;
-  height: 50%;
 }
 .calendar .events .title {
   display: block;
@@ -17,6 +16,9 @@
 .calendar .events .no-events {
   font-size: 1.2rem;
   text-align: center;
+}
+.calendar .today {
+  min-height: 30%;
 }
 .calendar .tomorrow {
   border-top: 1px solid black;

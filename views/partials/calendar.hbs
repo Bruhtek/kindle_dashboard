@@ -5,7 +5,7 @@
 			{{#noEvents todayEvents}}
 				<p class="no-events">No events today!</p>
 			{{else}}
-				{{#each todayEvents}}
+				{{#each ../todayEvents}}
 					<div class="event">
 						<p class="event-title">{{summary}}</p>
 						<p class="event-time">{{getTime eventStart}}</p>
